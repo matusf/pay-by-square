@@ -1,4 +1,4 @@
-# Pay by square
+# PAY by square
 
 Generate codes for [by square](https://bysquare.com/) payments.
 
@@ -13,6 +13,31 @@ pip install pay-by-square
 ```
 
 ## Usage
+
+### API
+
+```text
+pay_by_square.generate(
+    *,
+    amount: float,
+    iban: str,
+    swift: str = '',
+    date: Optional[date] = None,
+    beneficiary_name: str = '',
+    currency: str = 'EUR',
+    variable_symbol: str = '',
+    constant_symbol: str = '',
+    specific_symbol: str = '',
+    note: str = '',
+    beneficiary_address_1: str = '',
+    beneficiary_address_2: str = '',
+) -> str:
+    Generate pay-by-square code that can by used to create QR code for banking apps
+
+    When date is not provided current date will be used.
+```
+
+### Example
 
 ```python
 import qrcode
