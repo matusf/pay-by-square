@@ -1,6 +1,7 @@
 import lzma
 import binascii
-from datetime import datetime
+from typing import Optional
+from datetime import datetime, date
 
 
 def generate(
@@ -8,6 +9,7 @@ def generate(
     amount: float,
     iban: str,
     swift: str = '',
+    date: Optional[date] = None,
     beneficiary_name: str = '',
     currency: str = 'EUR',
     variable_symbol: str = '',
@@ -19,7 +21,12 @@ def generate(
 ) -> str:
     '''Generate pay-by-square code that can by used to create QR code for
     banking apps
+
+    When date is not provided current date will be used.
     '''
+
+    if date is None:
+        date = datetime.now()
 
     # 1) create the basic data structure
     data = '\t'.join(
@@ -29,7 +36,7 @@ def generate(
             '1',  # simple payment
             f'{amount:.2f}',
             currency,
-            datetime.now().strftime('%Y%m%d'),
+            date.strftime('%Y%m%d'),
             variable_symbol,
             constant_symbol,
             specific_symbol,
