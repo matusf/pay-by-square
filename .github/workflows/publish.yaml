@@ -1,0 +1,17 @@
+---
+name: publish
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  tests:
+    name: "Publish release"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v2"
+      - uses: "actions/setup-python@v2"
+      - run: pip install poetry
+      - run: poetry publish -u __token__ -p  ${{ secrets.PYPI_TOKEN }}
