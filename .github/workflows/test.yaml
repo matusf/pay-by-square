@@ -23,3 +23,5 @@ jobs:
       - run: poetry install
       - name: "Run tests"
         run: "python tests.py"
+      - name: "Run black"
+        run: poetry run black .
