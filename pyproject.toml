@@ -9,10 +9,14 @@ repository = "https://github.com/matusf/pay-by-square"
 keywords = ["payments", "qrcode", "pay"]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.6.2"
 
 [tool.poetry.dev-dependencies]
+black = "21.9b0"
 
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
+
+[tool.black]
+skip-string-normalization = true
