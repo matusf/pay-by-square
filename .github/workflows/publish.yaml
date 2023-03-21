@@ -11,7 +11,7 @@ jobs:
     name: "Publish release"
     runs-on: "ubuntu-latest"
     steps:
-      - uses: "actions/checkout@v2"
+      - uses: "actions/checkout@v3"
       - uses: "actions/setup-python@v4"
       - run: pip install poetry
       - run: poetry publish -u __token__ -p  ${{ secrets.PYPI_TOKEN }}
