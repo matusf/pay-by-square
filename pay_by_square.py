@@ -136,7 +136,7 @@ def decode(pbs: str):
     split_data = data.decode('utf-8').split('\t')
 
     res = {}
-    assert split_data[0] == ''
+    assert split_data[0] in ['', ' ']
     assert split_data[1] == '1' # payment
     assert split_data[2] == '1' # simple payment
     res['amount'] = split_data[3]
