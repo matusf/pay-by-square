@@ -1,12 +1,6 @@
 ---
 name: test & lint
-
-on:
-  push:
-    branches: ["master"]
-  pull_request:
-    branches: ["master"]
-
+on: [push, pull_request, workflow_dispatch]
 jobs:
   tests:
     name: "Python ${{ matrix.python-version }}"
